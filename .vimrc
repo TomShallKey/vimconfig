@@ -1,0 +1,98 @@
+filetype off
+set shellslash
+set rtp+=~/vimfiles/bundle/Vundle.vim
+call vundle#begin('~/vimfiles/bundle')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" =============================================================
+" MY CONFIG https://realpython.com/vim-and-python-a-match-made-in-heaven/
+" forced splits
+set splitbelow
+set splitright
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+
+Plugin 'tmhedberg/SimpylFold'
+
+" Python Indentation
+au BufNewFile, BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+	
+Plugin 'vim-scripts/indentpython.vim'
+
+"Unnecessary Whitespace
+au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" UTF-8 Support
+set encoding=utf-8
+
+" Syntax
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+let python_highlight_all=1
+syntax on
+
+Plugin 'scrooloose/nerdtree'
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+map <C-m> :NERDTreeToggle<CR>
+
+"search engine
+Plugin 'kien/ctrlp.vim'
+set nu
+
+set clipboard=unnamed
+
+"auto pair
+Plugin 'jiangmiao/auto-pairs'
+"colored parenthesis
+"""Plugin 'frazrepo/vim-rainbow'
+"""let g:rainbow_active = 1
+
+"lightline config
+Plugin 'itchyny/lightline.vim'
+if !has('gui_running')
+  set t_Co=256
+endif
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
+
+Plugin 'phanviet/Sidonia'
+colorscheme sidonia
+
+set termguicolors
+
+Plugin 'zxqfl/tabnine-vim'
+
