@@ -64,6 +64,7 @@ Plugin 'nvie/vim-flake8'
 let python_highlight_all=1
 syntax on
 
+
 Plugin 'scrooloose/nerdtree'
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 map <C-m> :NERDTreeToggle<CR>
@@ -89,10 +90,13 @@ let g:lightline = {
       \ 'colorscheme': 'nord',
       \ }
 
-Plugin 'phanviet/Sidonia'
-colorscheme sidonia
-
 set termguicolors
+set background=dark
+Plugin 'rakr/vim-two-firewatch'
+let g:two_firewatch_italics=1
+colo two-firewatch
+colorscheme two-firewatch
 
-Plugin 'zxqfl/tabnine-vim'
-
+Plugin 'sheerun/vim-polyglot'
+Plugin 'vim-python/python-syntax'
+let g:python_highlight_all = 1
